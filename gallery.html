@@ -48,5 +48,30 @@
         <p>&copy; 2026 Creston Community Center | Managed by C.A.T.C.H.</p>
         <p><small>A registered non-profit organization | <a href="https://www.guidestar.org/profile/59-3839276" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Tax ID: 59-3839276</a></small></p>
     </footer>
+
+    <div id="lightbox">
+        <img src="" alt="Enlarged gallery view">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const galleryImages = document.querySelectorAll('.gallery img');
+
+            galleryImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
